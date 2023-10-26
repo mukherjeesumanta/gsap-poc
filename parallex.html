@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .panel,
+      .panel2,
+      .padding {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .panel span,
+      .panel2 span {
+        color: white;
+        font-size: 5rem;
+      }
+      .blue {
+        background-color: skyblue;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .red {
+        background-color: lightcoral;
+      }
+      .green {
+        background-color: lightgreen;
+      }
+      .white {
+        background-color: white;
+      }
+
+      #container2 {
+        position: relative;
+      }
+      .panel2 {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* z-index: -1; */
+      }
+      .purple {
+        background-color: purple;
+        z-index: 2;
+      }
+      .palegreen {
+        background-color: palegreen;
+        z-index: 1;
+      }
+      .black {
+        background-color: #000;
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="panel blue"><span>Blue</span></div>
+      <div class="panel orange"><span>Orange</span></div>
+      <div class="panel red"><span>Red</span></div>
+      <div class="panel green"><span>Green</span></div>
+    </div>
+    <div class="padding white"><span>padding</span></div>
+    <div id="container2">
+      <div class="panel2 purple"><span>Purple</span></div>
+      <div class="panel2 palegreen"><span>Pale green</span></div>
+      <div class="panel2 black"><span>Pale green</span></div>
+    </div>
+
+    <script src="./js/lib/gsap.min.js"></script>
+    <script src="./js/lib/ScrollTrigger.min.js"></script>
+    <script src="./js/lib/jquery-1.11.2.min.js"></script>
+
+    <script>
+      // https://gsap.com/docs/v3/Plugins/ScrollTrigger/
+      // horizontal parallex: https://codepen.io/GreenSock/pen/oNjgEjm
+      $(document).ready(function () {
+        gsap.registerPlugin(ScrollTrigger);
+
+        var panels = gsap.utils.toArray(".panel");
+
+        // we'll create a ScrollTrigger for each panel just to track when each panel's top hits the top of the viewport (we only need this for snapping)
+        /* let tops = panels.map((panel) =>
+          ScrollTrigger.create({ trigger: panel, start: "top top" })
+        ); */
+
+        panels.forEach((panel, i) => {
+          console.log(
+            "panel.offsetHeight: ",
+            panel.offsetHeight,
+            panel.className
+          );
+          ScrollTrigger.create({
+            trigger: panel,
+            start: "top top" /* () =>
+              panel.offsetHeight < window.innerHeight
+                ? "top top"
+                : "bottom bottom", */, // if it's shorter than the viewport, we prefer to pin it at the top
+            end: "bottom top",
+            pin: true,
+            pinSpacing: false,
+          });
+        });
+
+        /* ScrollTrigger.create({
+          snap: {
+            snapTo: (progress, self) => {
+              let panelStarts = tops.map((st) => st.start), // an Array of all the starting scroll positions. We do this on each scroll to make sure it's totally responsive. Starting positions may change when the user resizes the viewport
+                snapScroll = gsap.utils.snap(panelStarts, self.scroll()); // find the closest one
+              return gsap.utils.normalize(
+                0,
+                ScrollTrigger.maxScroll(window),
+                snapScroll
+              ); // snapping requires a progress value, so convert the scroll position into a normalized progress value between 0 and 1
+            },
+            duration: 0.5,
+          },
+        }); */
+
+        /* gsap.to(".panel2", {
+          yPercent: "-100%",
+          scrollTrigger: {
+            trigger: ".panel2",
+            start: "top top",
+            pin: true,
+            pinSpacing: false,
+            scrub: 1,
+          },
+        }); */
+
+        /* const stackedDivs = document.querySelectorAll(".panel2");
+
+        stackedDivs.forEach((div, index) => {
+          gsap.to(div, {
+            y: -100 * index, // Adjust the value to control the distance between the divs
+            scrollTrigger: {
+              trigger: div,
+              start: "top top",
+              //pin: '#container2',
+              end: 'bottom top',
+              //markers: true, // Set to true to visualize trigger areas (for debugging)
+              scrub: true, // Smooth animation during scroll
+            },
+          });
+        }); */
+      });
+    </script>
+  </body>
+</html>

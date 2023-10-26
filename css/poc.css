@@ -1,0 +1,152 @@
+:root {
+    --ra-primary-color: #230751
+}
+#replace_text {
+  font-size: 5rem;
+  font-family: cursive;
+  color: orangered;
+}
+video.banner-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 50vh;
+    object-fit: cover;
+    object-position: center center;
+  }
+  body {
+    background: white;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    width: 100vw;
+    height: 50vh;
+    margin: 0;
+    position: relative;
+    /* max-width: 1200px; */
+  }
+  header video {
+    width: 100%;
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; /* // needed for FF, Safari, Edge */
+  }
+  svg text {
+    font-family: Biko, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    /* font-size: 38px; */
+    font-size: 14vw;
+    transition: 1.5s font-size;
+  }
+  svg rect {
+    fill: #a9a9a9;
+  }
+  svg > rect {
+    -webkit-mask: url(#mask);
+    mask: url(#mask);
+  }
+
+  @media screen and (max-width: 1200px) {
+    /* svg text {
+        font-size: 28px;
+    } */
+  }
+
+  /* =============== */
+
+.body {
+    width: 100%;
+    height: 50vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000;
+    font-family: sans-serif;
+    color: white;
+}
+.wrapper {
+    position: relative;
+    width: 80%;
+    height: 30%;
+    margin: 0 auto;
+}
+video.second {
+    width: 100%;
+    height: auto;
+}
+.clipped-video {
+    -webkit-clip-path: url(#text-overlay);
+    clip-path: url(#text-overlay);
+}
+svg.second {
+    display: block;
+    position: absolute;
+    top: 0;
+}
+.second text {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14vw;
+}
+.scrolling_section {
+    
+}
+section.first {
+    /* display: flex;
+    flex-direction: column;
+    gap: 0; */
+    padding: 4rem;
+    background-color: #fff;
+}
+.logo {
+    /* height: 15vh; */
+    z-index: 1;
+}
+.logo h1 {
+    font-size: 8vw;
+    text-align: center;
+    font-family: cursive;
+    color: var(--ra-primary-color);
+    /* margin: 0; */
+}
+.intro_video {
+    width: 100%;
+    height: 50vh;
+    background-color: #ccc;
+    z-index: 1;
+    position: relative;
+}
+.intro_video .caption {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4vw;
+    color: var(--ra-primary-color);
+    font-family: cursive;
+}
+section.first .cloud_img {
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: 0;
+}
+section.first .cloud_img img {
+    height: 100%;
+}
+.swipein_card {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+}

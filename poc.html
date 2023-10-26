@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/poc.css" />
+  </head>
+  <body>
+    <h1 id="replace_text">Replace this text!!</h1>
+    <header>
+      <video
+        id="video-banner"
+        class="banner-image background-video videoPlay"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload
+      >
+        <source
+          src="./video/header-loop-july-cut.mp4"
+          type="video/mp4"
+          preload="metadata"
+        />
+      </video>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <defs>
+          <mask id="mask" x="0" y="0" width="100%" height="100%">
+            <rect x="0" y="0" width="100%" height="100%" />
+            <text x="38" y="50" dy="1.4em" >Riyadh Air</text>
+          </mask>
+        </defs>
+        <rect x="0" y="0" width="100%" height="100%" />
+      </svg>
+    </header>
+
+
+    <div class="body">
+        <div class="wrapper">
+          <video class="clipped-video second" muted loop autoplay>
+            <source src="./video/header-loop-july-cut.mp4">
+            </source>
+          </video>
+          <svg height="100%" width="100%" class="second">
+            <clipPath id="text-overlay" width="100%" height="100%">
+              <text id="title" x="0" y="0" dy="1.5em">Riyadh Air</text>
+            </clipPath>
+          </svg>
+        </div>
+    </div>
+
+    <div class="scrolling_section">
+      <section class="first">
+        <!-- <div class="line_draw">
+          <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+            <path style="stroke: rgb(0, 0, 0); fill: none;" d="M 34.62 0.568 C 34.62 29.937 25.252 57.862 28.944 87.401 C 29.69 93.364 30.647 98.937 30.647 104.994 C 30.647 105.573 30.71 111.3 31.215 111.805 C 40.59 121.18 45.154 135.598 47.106 149.262 C 47.46 151.742 48.93 158.098 47.673 160.613 C 45.278 165.404 48.809 172.529 47.106 177.639 C 42.333 191.957 40.407 216.111 44.268 231.555 C 45.866 237.946 48.799 250.313 46.538 257.094 C 42.953 267.849 47.219 281.159 43.7 291.714 C 42.565 295.119 45.077 303.554 43.133 306.47 C 40.992 309.681 40.863 319.518 40.863 322.929 C 40.863 330.84 43.908 342.736 41.43 350.17 C 33.08 375.221 36.322 404.556 36.322 432.463 C 36.322 440.484 32.917 445.144 32.917 452.327"/>
+          </svg>
+        </div> -->
+        <div class="logo">
+          <h1 id="ra_logo">Riyadh Air logo</h1>
+        </div>
+        <div class="intro_video">
+          <h2 class="caption">The Future Takes Flight 2023</h2>
+        </div>
+        <div class="cloud_img">
+          <img src="./img/cloud.png" alt="">
+        </div>
+
+        <!-- <div class="swipein_card">
+          <div class="card1">
+            <img src="./img/horizonatal2.jpg" alt="">
+          </div>
+          <div class="card2">
+            <img src="./img/horizontal-3.jpg" alt="">
+          </div>
+        </div> -->
+        <!-- <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br> -->
+      </section>
+    </div>
+
+    
+    <script src="./js/lib/gsap.min.js"></script>
+    <script src="./js/lib/ScrollTrigger.min.js"></script>
+    <script src="./js/lib/jquery-1.11.2.min.js"></script>
+    <script src="./js/lib/jquery.drawsvg.min.js"></script>
+    <script src="./js/lib/TextPlugin.3.12.2.min.js"></script>
+    <script src="./js/poc.js"></script>
+    
+
+  </body>
+</html>
